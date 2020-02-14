@@ -11,7 +11,17 @@
 #' @return the cross validation value
 #' @export
 #'
-#' @examples
+#' @seealso \code{\link{CVLC}}
+#' @examples \dontrun{
+#'
+#' data(Y)
+#' data(u)
+#' data(LowerBoundary)
+#' # h is fixed
+#' h_grid <- matrix(seq(LowerBoundary, 0.6, length.out = 100),nrow = 100)
+#' cv <- apply(h_grid, 1, CVLL, Y = Y, u = u)
+#' plot(h_grid,cv, type = 'l', xlab = "Bandwidth", ylab = "CV Values", col = "blue")
+#' }
 CVLL <- function(Y, u, h) {
     p <- nrow(Y)
     n <- ncol(Y)
