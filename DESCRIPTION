@@ -1,0 +1,18 @@
+Package: llfdr
+Type: Package
+Title: What the Package Does (Title Case)
+Version: 0.1.0
+Authors@R: c(
+    person("Jie", "Li", email = "jl705@kent.ac.uk", role = c("cre","aut")),
+    person("Jian", "Zhang", email = "J.Zhang-79@kent.ac.uk", role = "aut"))
+Maintainer: Jie Li <jl705@kent.ac.uk>
+Description: More about what it does (maybe more than one line)
+    Use four spaces when indenting paragraphs within the Description.
+License: GPL-3
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 7.0.2
+Suggests: 
+    knitr,
+    rmarkdown
+VignetteBuilder: knitr
