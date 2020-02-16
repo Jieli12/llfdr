@@ -18,9 +18,12 @@
 #' data(u)
 #' data(LowerBoundary)
 #' # h is fixed
-#' h_grid <- matrix(seq(LowerBoundary, 0.5, length.out = 100),nrow = 100)
+#' h_grid <- matrix(seq(c(LowerBoundary), 0.5, length.out = 100),nrow = 100)
 #' cv <- apply(h_grid, 1, CVLL, Y = Y, u = u)
 #' plot(h_grid,cv, type = 'l', xlab = "Bandwidth", ylab = "CV Values", col = "blue")
+#' # find the optimal bandwidth
+#' h_opt <- optimise(CVLL, c(LowerBoundary, 2), tol = 1e-6, Y = Y, u = u)
+#' abline(v = h_opt[1], col="red")
 #' }
 CVLL <- function(Y, u, h) {
     p <- nrow(Y)
@@ -32,7 +35,7 @@ CVLL <- function(Y, u, h) {
     u <- u_sort$x
     Y <- Y[,u_sort$ix]
 
-    u_mat <- matrix(rep(t(u), n), ncol = ncol(u), byrow = TRUE)
+    u_mat <- replicate(n, u)
     u_diff <- t(u_mat) - u_mat
     x <- u_diff / h
     kernel <- dnorm(x) / h
