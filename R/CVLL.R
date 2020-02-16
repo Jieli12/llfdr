@@ -32,7 +32,7 @@ CVLL <- function(Y, u, h) {
     u <- u_sort$x
     Y <- Y[,u_sort$ix]
 
-    u_mat <- replicate(n, u)
+    u_mat <- matrix(rep(t(u), n), ncol = ncol(u), byrow = TRUE)
     u_diff <- t(u_mat) - u_mat
     x <- u_diff / h
     kernel <- dnorm(x) / h

@@ -21,3 +21,17 @@ This function firstly estimates the local linear weighted
 average at each center u(i) given bandwidth h. Here we use gaussian kerenel.
 The return is the residual of Yi - \hat{Y}_{i}.
 }
+\examples{
+\dontrun{
+
+data(Y)
+data(u)
+data(LowerBoundary)
+# h is fixed
+h <- 0.1
+Residual_LL <- YResidualLL(Y = Y, u = u, h = h)
+}
+}
+\seealso{
+\code{\link{YResidualLC}}
+}

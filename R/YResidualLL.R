@@ -11,13 +11,22 @@
 #' @return the residuals
 #' @export
 #'
-#' @examples
+#' @seealso \code{\link{YResidualLC}}
+#' @examples \dontrun{
+#'
+#' data(Y)
+#' data(u)
+#' data(LowerBoundary)
+#' # h is fixed
+#' h <- 0.1
+#' Residual_LL <- YResidualLL(Y = Y, u = u, h = h)
+#' }
 YResidualLL  <- function(Y, u, h) {
     p <- nrow(Y)
     n <- ncol(Y)
     yres <- matrix(0, nrow = p, ncol = n)
 
-    u_mat <- replicate(n, u)
+    u_mat <- matrix(rep(t(u), n), ncol = ncol(u), byrow = TRUE)
     u_diff <- t(u_mat) - u_mat
     x <- u_diff / h
     kernel <- dnorm(x) / h
