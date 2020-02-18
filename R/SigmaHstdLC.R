@@ -1,15 +1,15 @@
-#' @title CVHstdLC
+#' @title SigmaHstdLC
 #'
-#' @description  This function calculates the cross validation values using local constant
-#' method when bandwidth is given.
+#' @description  this routine computes the corresponding sigma matrix
+#' with standard bandwidth at each u_i.
 #'
 #' @param Y the observation matrix
 #' @param u the condtion
 #' @param h the bandwidth, scalar
 #'
-#' @return the cross validation value
+#' @return the estimator of  diagonal entries at each given u_i.
 #' @export
-#' @seealso \code{\link{CVLC}}
+#' @seealso \code{\link{CVLC}},\code{\link{CVHstdLC}}
 #' @examples \dontrun{
 #'
 #' data(Y)
@@ -27,7 +27,7 @@
 #'                    Y = YResidual_LC, u = u)
 #' abline(v = h_std$minimum, col="red")
 #'}
-CVHstdLC  <- function(Y, u, h) {
+SigmaHstdLC  <- function(Y, u, h) {
     p <- nrow(Y)
     n <- ncol(Y)
     u_mat <- matrix(rep(t(u), n), ncol = ncol(u), byrow = TRUE)
@@ -35,13 +35,7 @@ CVHstdLC  <- function(Y, u, h) {
     kernel <- dnorm(x) / h
     sumk <- rowSums(kernel)
     weight <- kernel / replicate(n, sumk)
-    cv <- 0
-    for (i in 1:n) {
-        w <- weight[i, -i]
-        w <- w / sum(w)
-        sigma_i <- Y[,-i]^2 %*% w
-        cv <- cv + sum(Y[,i]^2 / sigma_i + log(sigma_i))
-    }
-    cv <- cv / n / p
-    return(cv)
+    Y2 = Y^2
+    sigma <- apply(weight, 1, .Product, Y = Y2)
+    return(sigma)
 }
