@@ -22,25 +22,26 @@
 #' Residual_LL <- YResidualLL(Y = Y, u = u, h = h)
 #' }
 YResidualLL  <- function(Y, u, h) {
-    p <- nrow(Y)
-    n <- ncol(Y)
+    # p <- nrow(Y)
+    # n <- ncol(Y)
     # yres <- matrix(0, nrow = p, ncol = n)
 
-    u_mat <- matrix(rep(t(u), n), ncol = ncol(u), byrow = TRUE)
-    u_diff <- t(u_mat) - u_mat
-    x <- u_diff / h
-    kernel <- dnorm(x) / h
-    u_diff_2 <- u_diff^2
-    sn1 <- rowSums(kernel * u_diff)
-    sn2 <- rowSums(kernel * u_diff_2)
-    Sn1 <- replicate(n, sn1)
-    Sn2 <- replicate(n, sn2)
-    Weight <- kernel * (Sn2 - u_diff * Sn1)
-    Weight_sum = rowSums(Weight)
-    Weight = Weight / replicate(n, Weight_sum)
+    # u_mat <- matrix(rep(t(u), n), ncol = ncol(u), byrow = TRUE)
+    # u_diff <- t(u_mat) - u_mat
+    # x <- u_diff / h
+    # kernel <- dnorm(x) / h
+    # u_diff_2 <- u_diff^2
+    # sn1 <- rowSums(kernel * u_diff)
+    # sn2 <- rowSums(kernel * u_diff_2)
+    # Sn1 <- replicate(n, sn1)
+    # Sn2 <- replicate(n, sn2)
+    # weight <- kernel * (Sn2 - u_diff * Sn1)
+    # weight_sum = rowSums(weight)
+    # weight = weight / replicate(n, weight_sum)
+    weight = kernel_weight(u, bw = h, poly_order = 1)
     # for (i in 1:n) {
-    #     yres[,i] <- Y[,i] - Y %*% Weight[i,]
+    #     yres[,i] <- Y[,i] - Y %*% weight[i,]
     # }
-    yres <- Y - apply(Weight, 1, tcrossprod, y = Y)
+    yres <- Y - apply(weight, 1, tcrossprod, y = Y)
     return(yres)
 }

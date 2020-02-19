@@ -27,14 +27,16 @@
 #' result <- YAverage(Y, u, h)
 #' }
 YAverage <- function(Y, u, h) {
-    p <- nrow(Y)
-    n <- ncol(Y)
-    u_mat <- matrix(rep(t(u), n), ncol = ncol(u), byrow = TRUE)
-    x <- (t(u_mat) - u_mat) / h
-    kernel <- dnorm(x) / h
-    sumk <- rowSums(kernel)
-    weight <- kernel / replicate(n, sumk)
-    alpha <- sumk / (sumk - diag(kernel))
+    # p <- nrow(Y)
+    # n <- ncol(Y)
+    # u_mat <- matrix(rep(t(u), n), ncol = ncol(u), byrow = TRUE)
+    # x <- (t(u_mat) - u_mat) / h
+    # kernel <- dnorm(x) / h
+    # sumk <- rowSums(kernel)
+    # weight <- kernel / replicate(n, sumk)
+    # alpha <- sumk / (sumk - diag(kernel))
+    weight = kernel_weight(u, bw = h, poly_order = 0)
+    alpha <- 1 / (1 - diag(weight))
     # Product <- function(Y = Y, w) {
     #     return(Y %*% w)
     # }

@@ -35,20 +35,22 @@ CVLL <- function(Y, u, h) {
     u <- u_sort$x
     Y <- Y[,u_sort$ix]
 
-    u_mat <- replicate(n, u)
-    u_diff <- t(u_mat) - u_mat
-    x <- u_diff / h
-    kernel <- dnorm(x) / h
-    u_diff_2 <- u_diff^2
-    sn1 <- rowSums(kernel * u_diff)
-    sn2 <- rowSums(kernel * u_diff_2)
-    Sn1 <- replicate(n, sn1)
-    Sn2 <- replicate(n, sn2)
-    Weight <- kernel * (Sn2 - u_diff * Sn1)
-    Weight_sum = rowSums(Weight)
-    Weight = Weight / replicate(n, Weight_sum)
+    # u_mat <- replicate(n, u)
+    # u_diff <- t(u_mat) - u_mat
+    # x <- u_diff / h
+    # kernel <- dnorm(x) / h
+    # u_diff_2 <- u_diff^2
+    # sn1 <- rowSums(kernel * u_diff)
+    # sn2 <- rowSums(kernel * u_diff_2)
+    # Sn1 <- replicate(n, sn1)
+    # Sn2 <- replicate(n, sn2)
+    # weight <- kernel * (Sn2 - u_diff * Sn1)
+    # weight_sum = rowSums(weight)
+    # weight = weight / replicate(n, weight_sum)
+    u <- matrix(u, nrow = 1)
+    weight = kernel_weight(u, bw = h, poly_order = 1)
     for (i in Start:End) {
-        Res[,i-Start+1] <- Y[,i] - Y[,-i] %*% Weight[i,-i]
+        Res[,i-Start+1] <- Y[,i] - Y[,-i] %*% weight[i,-i]
     }
     cv = sum(sum(Res^2)) / (n * p)
     return(cv)

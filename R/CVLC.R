@@ -31,12 +31,14 @@ CVLC <- function(Y, u, h) {
     Start <- trunc(0.05 * n)
     End <- trunc(0.95 * n)
     Res <- matrix(0, nrow = p, ncol = End - Start + 1)
-    u_mat <- matrix(rep(t(u), n), ncol = ncol(u), byrow = TRUE)
-    x <- (t(u_mat) - u_mat) / h
-    kernel <- dnorm(x) / h
-    sumk <- rowSums(kernel)
-    weight <- kernel / replicate(n, sumk)
-    alpha <- sumk / (sumk - diag(kernel))
+    # u_mat <- matrix(rep(t(u), n), ncol = ncol(u), byrow = TRUE)
+    # x <- (t(u_mat) - u_mat) / h
+    # kernel <- dnorm(x) / h
+    # sumk <- rowSums(kernel)
+    # weight <- kernel / replicate(n, sumk)
+    # alpha <- sumk / (sumk - diag(kernel))
+    weight = kernel_weight(u, bw = h, poly_order = 0)
+    alpha <- 1 / (1 - diag(weight))
     for (i in Start:End) {
         Res[,i-Start+1] <- alpha[i] * (Y[,i] - Y %*% weight[i,])
     }

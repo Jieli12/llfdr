@@ -22,14 +22,15 @@
 #' Residual_LC <- YResidualLC(Y = Y, u = u, h = h)
 #' }
 YResidualLC <- function(Y, u, h) {
-    p <- nrow(Y)
-    n <- ncol(Y)
+    # p <- nrow(Y)
+    # n <- ncol(Y)
     # yres <- matrix(0, nrow = p, ncol = n)
-    u_mat <- matrix(rep(t(u), n), ncol = ncol(u), byrow = TRUE)
-    x <- (t(u_mat) - u_mat) / h
-    kernel <- dnorm(x) / h
-    sumk <- rowSums(kernel)
-    weight <- kernel / replicate(n, sumk)
+    # u_mat <- matrix(rep(t(u), n), ncol = ncol(u), byrow = TRUE)
+    # x <- (t(u_mat) - u_mat) / h
+    # kernel <- dnorm(x) / h
+    # sumk <- rowSums(kernel)
+    # weight <- kernel / replicate(n, sumk)
+    weight = kernel_weight(u, bw = h, poly_order = 0)
     # for (i in 1:n) {
     #     yres[,i] <- Y[,i] - Y %*% weight[i,]
     # }

@@ -30,11 +30,12 @@
 CVHstdLC  <- function(Y, u, h) {
     p <- nrow(Y)
     n <- ncol(Y)
-    u_mat <- matrix(rep(t(u), n), ncol = ncol(u), byrow = TRUE)
-    x <- (t(u_mat) - u_mat) / h
-    kernel <- dnorm(x) / h
-    sumk <- rowSums(kernel)
-    weight <- kernel / replicate(n, sumk)
+    # u_mat <- matrix(rep(t(u), n), ncol = ncol(u), byrow = TRUE)
+    # x <- (t(u_mat) - u_mat) / h
+    # kernel <- dnorm(x) / h
+    # sumk <- rowSums(kernel)
+    # weight <- kernel / replicate(n, sumk)
+    weight = kernel_weight(u, bw = h, poly_order = 0)
     cv <- 0
     for (i in 1:n) {
         w <- weight[i, -i]
