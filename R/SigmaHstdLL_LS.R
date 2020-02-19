@@ -16,7 +16,7 @@
 #' data(u)
 #' data(h_std_ll_ls)
 #' # compute the estimator of diagonal entries
-#' Sigma_hstd_ll_ls <- SigmaHstdLL_LS(Y = YResidual_LL, u = u, h = h_std_ll$minimum)
+#' Sigma_hstd_ll_ls <- SigmaHstdLL_LS(Y = YResidual_LL, u = u, h = h_std_ll_ls$minimum)
 #'}
 SigmaHstdLL_LS  <- function(Y, u, h) {
     # p <- nrow(Y)
