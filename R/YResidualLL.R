@@ -24,7 +24,7 @@
 YResidualLL  <- function(Y, u, h) {
     p <- nrow(Y)
     n <- ncol(Y)
-    yres <- matrix(0, nrow = p, ncol = n)
+    # yres <- matrix(0, nrow = p, ncol = n)
 
     u_mat <- matrix(rep(t(u), n), ncol = ncol(u), byrow = TRUE)
     u_diff <- t(u_mat) - u_mat
@@ -38,8 +38,9 @@ YResidualLL  <- function(Y, u, h) {
     Weight <- kernel * (Sn2 - u_diff * Sn1)
     Weight_sum = rowSums(Weight)
     Weight = Weight / replicate(n, Weight_sum)
-    for (i in 1:n) {
-        yres[,i] <- Y[,i] - Y %*% Weight[i,]
-    }
+    # for (i in 1:n) {
+    #     yres[,i] <- Y[,i] - Y %*% Weight[i,]
+    # }
+    yres <- Y - apply(Weight, 1, tcrossprod, y = Y)
     return(yres)
 }
