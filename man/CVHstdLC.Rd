@@ -27,16 +27,16 @@ data(Y)
 data(u)
 data(LowerBoundary)
 # find the optimal bandwidth for mean estimation
-h_mean <- optimise(CVLC, c(LowerBoundary, 2), tol = 1e-6, Y = Y, u = u)
+h_mean_lc <- optimise(CVLC, c(LowerBoundary, 2), tol = 1e-6, Y = Y, u = u)
 # compute the residual
-YResidual_LC <- YResidualLC(Y = Y, u = u, h = h_mean$minimum)
+YResidual_LC <- YResidualLC(Y = Y, u = u, h = h_mean_lc$minimum)
 h_grid <- matrix(seq(0.2, 1, length.out = 100), nrow = 100)
 cv <- apply(h_grid, 1, CVHstdLC, Y = YResidual_LC, u = u)
 plot(h_grid,cv, type = 'l', xlab = "Bandwidth", ylab = "CV Values", col = "blue")
 # select the optimal bandwidth for diagonal entries of covariance
-h_std <- optimise(CVHstdLC, c(LowerBoundary, 2), tol = 1e-6,
+h_std_lc <- optimise(CVHstdLC, c(LowerBoundary, 2), tol = 1e-6,
                    Y = YResidual_LC, u = u)
-abline(v = h_std$minimum, col="red")
+abline(v = h_std_lc$minimum, col="red")
 }
 }
 \seealso{

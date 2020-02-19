@@ -35,10 +35,11 @@ YAverage <- function(Y, u, h) {
     sumk <- rowSums(kernel)
     weight <- kernel / replicate(n, sumk)
     alpha <- sumk / (sumk - diag(kernel))
-    Product <- function(Y = Y, w) {
-        return(Y %*% w)
-    }
-    aver <- apply(weight, 1, Product, Y = Y)
+    # Product <- function(Y = Y, w) {
+    #     return(Y %*% w)
+    # }
+    # aver <- apply(weight, 1, Product, Y = Y)
+    aver <- apply(weight, 1, tcrossprod, y = Y)
     result <- list(aver = aver, weight = weight, alpha = alpha)
     return(result)
 }
