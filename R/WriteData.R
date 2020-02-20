@@ -23,3 +23,10 @@
 # run SigmaHstdLL_LS
 # usethis::use_data(Sigma_LL_LS, overwrite = TRUE)
 # usethis::use_data(Ystd_LL_LS, overwrite = TRUE)
+
+# run CVHstdLL_LH
+# usethis::use_data(hstd_LL_LH, overwrite = TRUE)
+
+# run SigmaHstdLL_LS
+# usethis::use_data(Sigma_LL_LS, overwrite = TRUE)
+# usethis::use_data(Ystd_LL_LS, overwrite = TRUE)

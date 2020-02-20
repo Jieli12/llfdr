@@ -14,7 +14,7 @@
 #'
 #' data(Yresid_ll)
 #' data(u)
-#' data(hstd_ll)
+#' data(LowerBoundary)
 #' h_grid <- matrix(seq(1.5, 2, length.out = 100), nrow = 100)
 #' cv <- apply(h_grid, 1, CVHstdLL_LS, Y = Yresid_ll, u = u)
 #' plot(h_grid,cv, type = 'l', xlab = "Bandwidth", ylab = "CV Values", col = "blue")

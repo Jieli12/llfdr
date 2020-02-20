@@ -14,8 +14,8 @@
 
 LMEBeta2 <- function(v, y2, expu, k, uk, SK, SUK) {
     B <- y2 / (expu^v)
-    SBK <- tcrossprod(B, k)
-    SBUK <- tcrossprod(B, uk)
+    SBK <- B %*% k
+    SBUK <- B %*% uk
     f <- (SBUK / SBK - SUK / SK)^2
     return(f)
 }
