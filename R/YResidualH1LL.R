@@ -1,4 +1,4 @@
-#' YResidualLL
+#' YResidualH1LL
 #'
 #' This function firstly estimates the local linear weighted
 #' average at each center u(i) given bandwidth h. Here we use gaussian kerenel.
@@ -11,17 +11,15 @@
 #' @return the residuals
 #' @export
 #'
-#' @seealso \code{\link{YResidualLC}}
+#' @seealso \code{\link{YResidualH1LC}}
 #' @examples \dontrun{
 #'
 #' data(Y)
 #' data(u)
-#' data(LowerBoundary)
-#' # h is fixed
-#' h <- 0.1
-#' Residual_LL <- YResidualLL(Y = Y, u = u, h = h)
+#' data(h1_ll)
+#' Yresid_ll <- YResidualH1LL(Y = Y, u = u, h = h1_ll$minimum)
 #' }
-YResidualLL  <- function(Y, u, h) {
+YResidualH1LL  <- function(Y, u, h) {
     # p <- nrow(Y)
     # n <- ncol(Y)
     # yres <- matrix(0, nrow = p, ncol = n)

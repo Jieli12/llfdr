@@ -23,11 +23,12 @@ with standard bandwidth at each u_i.
 \examples{
 \dontrun{
 
-data(YResidual_LC)
+data(Yresid_lc)
 data(u)
-data(h_std_lc)
+data(hstd_lc)
 # compute the estimator of diagonal entries
-Sigma_hstd_lc <- SigmaHstdLC(Y = YResidual_LC, u = u, h = h_std_lc$minimum)
+Sigma_hstd_lc <- SigmaHstdLC(Y = Yresid_lc, u = u, h = hstd_lc$minimum)
+Ystd_LC <- Yresid_lc / sqrt(Sigma_hstd_lc)
 }
 }
 \seealso{

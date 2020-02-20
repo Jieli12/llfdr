@@ -22,8 +22,8 @@
 #' cv <- apply(h_grid, 1, CVLL, Y = Y, u = u)
 #' plot(h_grid,cv, type = 'l', xlab = "Bandwidth", ylab = "CV Values", col = "blue")
 #' # find the optimal bandwidth
-#' h_opt <- optimise(CVLL, c(LowerBoundary, 2), tol = 1e-6, Y = Y, u = u)
-#' abline(v = h_opt[1], col="red")
+#' h1_ll <- optimise(CVLL, c(LowerBoundary, 2), tol = 1e-6, Y = Y, u = u)
+#' abline(v = h1_ll$minimum, col="red")
 #' }
 CVLL <- function(Y, u, h) {
     p <- nrow(Y)

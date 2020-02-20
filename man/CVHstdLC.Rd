@@ -23,20 +23,16 @@ method when bandwidth is given.
 \examples{
 \dontrun{
 
-data(Y)
 data(u)
 data(LowerBoundary)
-# find the optimal bandwidth for mean estimation
-h_mean_lc <- optimise(CVLC, c(LowerBoundary, 2), tol = 1e-6, Y = Y, u = u)
-# compute the residual
-YResidual_LC <- YResidualLC(Y = Y, u = u, h = h_mean_lc$minimum)
+data(Yresid_lc)
 h_grid <- matrix(seq(0.2, 1, length.out = 100), nrow = 100)
-cv <- apply(h_grid, 1, CVHstdLC, Y = YResidual_LC, u = u)
+cv <- apply(h_grid, 1, CVHstdLC, Y = Yresid_lc, u = u)
 plot(h_grid,cv, type = 'l', xlab = "Bandwidth", ylab = "CV Values", col = "blue")
 # select the optimal bandwidth for diagonal entries of covariance
-h_std_lc <- optimise(CVHstdLC, c(LowerBoundary, 2), tol = 1e-6,
-                   Y = YResidual_LC, u = u)
-abline(v = h_std_lc$minimum, col="red")
+hstd_lc <- optimise(CVHstdLC, c(LowerBoundary, 2), tol = 1e-6,
+                   Y = Yresid_lc, u = u)
+abline(v = hstd_lc$minimum, col="red")
 }
 }
 \seealso{

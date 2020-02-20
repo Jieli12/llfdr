@@ -23,20 +23,16 @@ local linear smoother when bandwidth is given.
 \examples{
 \dontrun{
 
-data(Y)
+data(Yresid_ll)
 data(u)
-data(LowerBoundary)
-# find the optimal bandwidth for mean estimation
-h_mean_ll <- optimise(CVLL, c(LowerBoundary, 2), tol = 1e-6, Y = Y, u = u)
-# compute the residual
-YResidual_LL <- YResidualLL(Y = Y, u = u, h = h_mean_ll$minimum)
+data(hstd_ll)
 h_grid <- matrix(seq(1.5, 2, length.out = 100), nrow = 100)
-cv <- apply(h_grid, 1, CVHstdLL_LS, Y = YResidual_LL, u = u)
+cv <- apply(h_grid, 1, CVHstdLL_LS, Y = Yresid_ll, u = u)
 plot(h_grid,cv, type = 'l', xlab = "Bandwidth", ylab = "CV Values", col = "blue")
 # select the optimal bandwidth for diagonal entries of covariance
-h_std_ll_ls <- optimise(CVHstdLL_LS, c(LowerBoundary, 2), tol = 1e-6,
-                   Y = YResidual_LL_LS, u = u)
-abline(v = h_std_ll_ls$minimum, col="red")
+hstd_LL_LS <- optimise(CVHstdLL_LS, c(LowerBoundary, 2), tol = 1e-6,
+                   Y = Yresid_ll, u = u)
+abline(v = hstd_LL_LS$minimum, col="red")
 }
 }
 \seealso{

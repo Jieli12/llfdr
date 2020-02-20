@@ -12,11 +12,12 @@
 #' @seealso \code{\link{CVLL}},\code{\link{CVHstdLL}}
 #' @examples \dontrun{
 #'
-#' data(YResidual_LL)
+#' data(Yresid_ll)
 #' data(u)
-#' data(h_std_ll_ls)
+#' data(hstd_LL_LS)
 #' # compute the estimator of diagonal entries
-#' Sigma_hstd_ll_ls <- SigmaHstdLL_LS(Y = YResidual_LL, u = u, h = h_std_ll_ls$minimum)
+#' Sigma_LL_LS <- SigmaHstdLL_LS(Y = Yresid_ll, u = u, h = hstd_LL_LS$minimum)
+#' Ystd_LL_LS = Yresid_ll / sqrt(Sigma_LL_LS)
 #'}
 SigmaHstdLL_LS  <- function(Y, u, h) {
     # p <- nrow(Y)
