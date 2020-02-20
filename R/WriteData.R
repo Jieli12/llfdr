@@ -30,3 +30,10 @@
 # run SigmaHstdLL_LS
 # usethis::use_data(Sigma_LL_LH, overwrite = TRUE)
 # usethis::use_data(Ystd_LL_LH, overwrite = TRUE)
+
+# run DCMCVh
+# usethis::use_data(hdcm1, overwrite = TRUE)
+
+# run DCMCVhMu
+# usethis::use_data(hdcm2, overwrite = TRUE)
+
