@@ -4,7 +4,7 @@
 \alias{YAverage}
 \title{YAverage}
 \usage{
-YAverage(Y, u, h)
+YAverage(Y, u, h, ktype = "gaussian")
 }
 \arguments{
 \item{Y}{the observation, p * n matrix}
