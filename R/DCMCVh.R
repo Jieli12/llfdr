@@ -37,6 +37,6 @@ DCMCVh <- function(Y, u, h, Index.y) {
             cv <- cv + Y_indj %*% solve(Cov_indj, Y_indj) + log(det(Cov_indj))
         }
     }
-    return(cv / (N *n))
+    return(cv / (N * n))
 }
 
