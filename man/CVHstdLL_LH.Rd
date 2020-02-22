@@ -7,7 +7,8 @@
 CVHstdLL_LH(Y, u, h, ktype = "gaussian")
 }
 \arguments{
-\item{u}{the condition, row matrix, size 1 * n1.}
+\item{u}{the condition, it is a vector, one-dimensional array or
+one-dimensional row(column) matrix}
 
 \item{ktype}{the kernel type, can be "gaussian", "epanech", "triweight",
 "biweight", "tricube", "triangular" and "cosine",
