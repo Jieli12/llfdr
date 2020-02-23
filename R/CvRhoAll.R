@@ -54,4 +54,5 @@ CvRhoAll <- function(yadd, ytime, u, h, ktype = 'gaussian') {
         denom <- 1 - r^2
         cv <- cv + mean((ai - 2 * r * bi) / denom + log(denom))
     }
+    return(cv)
 }
