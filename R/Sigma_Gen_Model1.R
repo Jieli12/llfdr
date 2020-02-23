@@ -17,4 +17,5 @@ Sigma_Gen_Model1 <- function(p, u) {
                      as.numeric(abs(i - j)==2) + 1 * as.numeric(i==j))
         }
     }
+    return(Sigma)
 }
