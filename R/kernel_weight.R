@@ -20,8 +20,9 @@
 #' }
 kernel_weight <- function(u, u0 = NULL, ktype = 'gaussian',
                           bw = 0.1, poly_order = 0) {
-    u_diff <- computeUdiff(u, u0)
+    u_diff <- computeUdiff(u, u0 = u0)
     kernel <- kernelCompute(u_diff, ktype = ktype, bw = bw)
+    n1 <- ncol(kernel)
     if (poly_order == 0) {
         sumk <- rowSums(kernel)
         weight <- kernel / replicate(n1, sumk)
