@@ -9,9 +9,11 @@ LMEDiagEstUFmin(Y, u, u0, h, ktype = "gaussian")
 \arguments{
 \item{Y}{the observation matrix}
 
-\item{u}{the condtion}
+\item{u}{the condition, it is a vector, one-dimensional array or
+one-dimensional row(column) matrix}
 
-\item{u0}{the center condition, row matrix, size 1 * n2, the default is u.}
+\item{u0}{the given condition to be estimated. The default is NULL.
+If u0 is NULL, then u0 = u.}
 
 \item{h}{the bandwidth, scalar}
 

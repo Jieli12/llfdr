@@ -5,7 +5,8 @@
 #' observations to avoid boundary effects.
 #'
 #' @param Y the observation matrix
-#' @param u the condtion
+#' @inheritParams kernelCompute
+#' @inheritParams computeUdiff
 #' @param h the bandwidth, scalar
 #'
 #' @return the cross validation value
@@ -25,7 +26,7 @@
 #' h1_ll <- optimise(CVLL, c(LowerBoundary, 2), tol = 1e-6, Y = Y, u = u)
 #' abline(v = h1_ll$minimum, col="red")
 #' }
-CVLL <- function(Y, u, h) {
+CVLL <- function(Y, u, h, ktype = 'gaussian') {
     p <- nrow(Y)
     n <- ncol(Y)
     Start <- trunc(0.05 * n)
@@ -48,7 +49,7 @@ CVLL <- function(Y, u, h) {
     # weight_sum = rowSums(weight)
     # weight = weight / replicate(n, weight_sum)
     u <- matrix(u, nrow = 1)
-    weight = kernel_weight(u, bw = h, poly_order = 1)
+    weight <- kernel_weight(u, bw = h, ktype = ktype, poly_order = 1)
     for (i in Start:End) {
         Res[,i-Start+1] <- Y[,i] - Y[,-i] %*% weight[i,-i]
     }

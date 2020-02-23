@@ -4,14 +4,22 @@
 \alias{YAverage}
 \title{YAverage}
 \usage{
-YAverage(Y, u, h, ktype = "gaussian")
+YAverage(Y, u, h, ktype = "gaussian", poly_order = 0)
 }
 \arguments{
 \item{Y}{the observation, p * n matrix}
 
-\item{u}{the condtion, 1 * n matrix}
+\item{u}{the condition, it is a vector, one-dimensional array or
+one-dimensional row(column) matrix}
 
 \item{h}{the bandwidth, scalar}
+
+\item{ktype}{the kernel type, can be "gaussian", "epanech", "triweight",
+"biweight", "tricube", "triangular" and "cosine",
+the default of ktype is "gaussian".}
+
+\item{poly_order}{0 or 1, 0 represents the local constant smoother
+while 1 represents the local linear smoother, default is 0.}
 }
 \value{
 This function will return list object which contains 3 variables:

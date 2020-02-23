@@ -7,7 +7,8 @@
 CvRhoAll(yadd, ytime, u, h, ktype = "gaussian")
 }
 \arguments{
-\item{u}{the conditon}
+\item{u}{the condition, it is a vector, one-dimensional array or
+one-dimensional row(column) matrix}
 
 \item{h}{the bandwidth}
 

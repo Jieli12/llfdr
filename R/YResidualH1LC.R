@@ -5,7 +5,8 @@
 #' The return is the residual of Yi - \hat{Y}_{i}.
 #'
 #' @param Y the observation matrix
-#' @param u the condtion
+#' @inheritParams kernelCompute
+#' @inheritParams computeUdiff
 #' @param h the bandwidth, scalar
 #'
 #' @return the residuals
@@ -19,7 +20,7 @@
 #' data(h1_lc)
 #' Yresid_lc <- YResidualH1LC(Y = Y, u = u, h = h1_lc$minimum)
 #' }
-YResidualH1LC <- function(Y, u, h) {
+YResidualH1LC <- function(Y, u, h, ktype = 'gaussian') {
     # p <- nrow(Y)
     # n <- ncol(Y)
     # yres <- matrix(0, nrow = p, ncol = n)
@@ -28,7 +29,7 @@ YResidualH1LC <- function(Y, u, h) {
     # kernel <- dnorm(x) / h
     # sumk <- rowSums(kernel)
     # weight <- kernel / replicate(n, sumk)
-    weight = kernel_weight(u, bw = h, poly_order = 0)
+    weight <- kernel_weight(u, bw = h, ktype = ktype)
     # for (i in 1:n) {
     #     yres[,i] <- Y[,i] - Y %*% weight[i,]
     # }

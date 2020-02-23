@@ -4,20 +4,25 @@
 \alias{Cov_EstMu}
 \title{Cov_EstMu}
 \usage{
-Cov_EstMu(Y, u, u_center, h, ktype = "gaussian")
+Cov_EstMu(Y, u, u0 = NULL, h, ktype = "gaussian", poly_order = 0)
 }
 \arguments{
 \item{Y}{the p*n size matrix}
 
-\item{u}{the condition}
+\item{u}{the condition, it is a vector, one-dimensional array or
+one-dimensional row(column) matrix}
 
-\item{u_center}{the given center}
+\item{u0}{the given condition to be estimated. The default is NULL.
+If u0 is NULL, then u0 = u.}
 
 \item{h}{the bandwidth}
 
 \item{ktype}{the kernel type, can be "gaussian", "epanech", "triweight",
 "biweight", "tricube", "triangular" and "cosine",
 the default of ktype is "gaussian".}
+
+\item{poly_order}{0 or 1, 0 represents the local constant smoother
+while 1 represents the local linear smoother, default is 0.}
 }
 \value{
 the covariance matrix

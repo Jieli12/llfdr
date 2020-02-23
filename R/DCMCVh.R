@@ -3,7 +3,9 @@
 #' threshold andshrinkage. We use subset-y-variables method.
 #'
 #' @param Y the observation matrix
-#' @param u the condtion
+#' @inheritParams kernelCompute
+#' @inheritParams computeUdiff
+#' @inheritParams kernel_weight
 #' @param h the bandwidth, scalar
 #' @param Index.y the index of subset-y-variables
 #'
@@ -23,11 +25,11 @@
 #'                    Y = Yresid_lc, u = u , Index.y = Index.y)
 #' abline(v = hdcm1$minimum, col="red")
 #'}
-DCMCVh <- function(Y, u, h, Index.y) {
+DCMCVh <- function(Y, u, h, Index.y, ktype = 'gaussian') {
     n <- ncol(Y)
     N <- ncol(Index.y)
     cv <- 0
-    weight = kernel_weight(u, bw = h, poly_order = 0)
+    weight <- kernel_weight(u, bw = h, poly_order = 0, ktype = ktype)
     for (i in 1:n) {
         Cov <- CovDelete(Y[,-i], weight[i,-i])
         for (j in 1:N) {

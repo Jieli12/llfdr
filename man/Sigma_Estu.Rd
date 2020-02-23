@@ -4,16 +4,18 @@
 \alias{Sigma_Estu}
 \title{Sigma_Estu}
 \usage{
-Sigma_Estu(Y, u, h, u_test, ktype = "gaussian")
+Sigma_Estu(Y, u, h, u0, ktype = "gaussian")
 }
 \arguments{
 \item{Y}{the observation matrix}
 
-\item{u}{the condtion}
+\item{u}{the condition, it is a vector, one-dimensional array or
+one-dimensional row(column) matrix}
 
 \item{h}{the bandwidth, scalar}
 
-\item{u_test}{the condition u for testing}
+\item{u0}{the given condition to be estimated. The default is NULL.
+If u0 is NULL, then u0 = u.}
 
 \item{ktype}{the kernel type, can be "gaussian", "epanech", "triweight",
 "biweight", "tricube", "triangular" and "cosine",

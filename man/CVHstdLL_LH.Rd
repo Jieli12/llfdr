@@ -7,8 +7,12 @@
 CVHstdLL_LH(Y, u, h, ktype = "gaussian")
 }
 \arguments{
+\item{Y}{the observation, p * n matrix}
+
 \item{u}{the condition, it is a vector, one-dimensional array or
 one-dimensional row(column) matrix}
+
+\item{h}{the bandwidth, scalar}
 
 \item{ktype}{the kernel type, can be "gaussian", "epanech", "triweight",
 "biweight", "tricube", "triangular" and "cosine",

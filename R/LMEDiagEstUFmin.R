@@ -4,12 +4,10 @@
 #' with standard bandwidth at each u_i using local linear smoother.
 #'
 #' @param Y the observation matrix
-#' @param u the condtion
+#' @inheritParams kernelCompute
+#' @inheritParams computeUdiff
+#' @inheritParams kernel_weight
 #' @param h the bandwidth, scalar
-#' @param u0 the center condition, row matrix, size 1 * n2, the default is u.
-#' @param ktype the kernel type, can be "gaussian", "epanech", "triweight",
-#'              "biweight", "tricube", "triangular" and "cosine",
-#'              the default of ktype is "gaussian".
 #'
 #' @return the estimator of  diagonal entries at each given u0.
 #' @export
@@ -25,38 +23,40 @@
 #'}
 LMEDiagEstUFmin  <- function(Y, u, u0, h, ktype = 'gaussian')  {
     p <- nrow(Y)
-    n1 <- ncol(Y)
+    # n1 <- ncol(Y)
     n2 <- length(u0)
-    u_rep <- rep(t(u), times = n2)
-    u0_rep <- rep(t(u0), each = n1)
-    U_diff <- matrix(u_rep - u0_rep, ncol = n1, byrow = TRUE)
-    U_diff_H <- U_diff / h
-    abs_diffh <- abs(U_diff_H)
-    K <- switch(ktype,
-                gaussian = dnorm(U_diff_H) / h,
-                epanech = {
-                    ifelse(abs_diffh <= 1, 3 / 4 * ( 1 - U_diff_H^2) / h, 0)
-                },
-                triweight = {
-                    ifelse(abs_diffh <= 1, 35 / 32 * ( 1 - U_diff_H^2)^3 / h, 0)
-                },
-                biweight = {
-                    ifelse(abs_diffh <= 1, 15 / 16 * ( 1 - U_diff_H^2)^2 / h, 0)
-                },
-                tricube = {
-                    ifelse(abs_diffh <= 1, 70 / 81 * ( 1 - U_diff_H^3)^3 / h, 0)
-                },
-                triangular = {
-                    ifelse(abs_diffh <= 1, ( 1 - U_diff_H) / h, 0)
-                },
-                cosine = {
-                    ifelse(abs_diffh <= 1, pi / 4 * cos( pi / 2 * U_diff_H) / h , 0)
-                }
-    )
+    # u_rep <- rep(t(u), times = n2)
+    # u0_rep <- rep(t(u0), each = n1)
+    # U_diff <- matrix(u_rep - u0_rep, ncol = n1, byrow = TRUE)
+    U_diff <- computeUdiff(u, u0 = u0)
+    # U_diff_H <- U_diff / h
+    # abs_diffh <- abs(U_diff_H)
+    # K <- switch(ktype,
+    #             gaussian = dnorm(U_diff_H) / h,
+    #             epanech = {
+    #                 ifelse(abs_diffh <= 1, 3 / 4 * ( 1 - U_diff_H^2) / h, 0)
+    #             },
+    #             triweight = {
+    #                 ifelse(abs_diffh <= 1, 35 / 32 * ( 1 - U_diff_H^2)^3 / h, 0)
+    #             },
+    #             biweight = {
+    #                 ifelse(abs_diffh <= 1, 15 / 16 * ( 1 - U_diff_H^2)^2 / h, 0)
+    #             },
+    #             tricube = {
+    #                 ifelse(abs_diffh <= 1, 70 / 81 * ( 1 - U_diff_H^3)^3 / h, 0)
+    #             },
+    #             triangular = {
+    #                 ifelse(abs_diffh <= 1, ( 1 - U_diff_H) / h, 0)
+    #             },
+    #             cosine = {
+    #                 ifelse(abs_diffh <= 1, pi / 4 * cos( pi / 2 * U_diff_H) / h , 0)
+    #             }
+    # )
+    K <- kernelCompute(U_diff, ktype = ktype, bw = h)
     UK_mat <- U_diff * K
     Y2 <- Y^2
     ExpU_mat <- exp(U_diff)
-    CovDiag <- matrix(0, nrow = p, ncol = n)
+    CovDiag <- matrix(0, nrow = p, ncol = n2)
     SK_rowsum <- rowSums(K)
     SUK_rowsum <- rowSums(UK_mat)
     for (i in 1:n2) {

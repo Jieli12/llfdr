@@ -4,7 +4,8 @@
 #' local linear smoother when bandwidth is given.
 #'
 #' @param Y the observation matrix
-#' @param u the condtion
+#' @inheritParams kernelCompute
+#' @inheritParams computeUdiff
 #' @param h the bandwidth, scalar
 #'
 #' @return the cross validation value
@@ -23,11 +24,11 @@
 #'                    Y = Yresid_ll, u = u)
 #' abline(v = hstd_LL_LS$minimum, col="red")
 #'}
-CVHstdLL_LS  <- function(Y, u, h) {
+CVHstdLL_LS  <- function(Y, u, h, ktype = 'gaussian') {
     p <- nrow(Y)
     n <- ncol(Y)
-    weight = kernel_weight(u, bw = h, poly_order = 1)
-    Y_sq = Y^2
+    weight <- kernel_weight(u, bw = h, ktype = ktype, poly_order = 1)
+    Y_sq <- Y^2
     cv <- 0
     for (i in 1:n) {
         w <- weight[i, -i]

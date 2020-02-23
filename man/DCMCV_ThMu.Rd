@@ -4,18 +4,20 @@
 \alias{DCMCV_ThMu}
 \title{DCMCV_ThMu}
 \usage{
-DCMCV_ThMu(Yi, u, Index.obs, u_test, h, r, ktype = "gaussian")
+DCMCV_ThMu(Yi, u, Index.obs, u0, h, r, ktype = "gaussian")
 }
 \arguments{
 \item{Yi}{the p * n matrix}
 
-\item{u}{the condition u}
+\item{u}{the condition, it is a vector, one-dimensional array or
+one-dimensional row(column) matrix}
 
 \item{Index.obs}{the index of observation}
 
-\item{u_test}{the given u}
+\item{u0}{the given condition to be estimated. The default is NULL.
+If u0 is NULL, then u0 = u.}
 
-\item{h}{the optimal bandwidth}
+\item{h}{the  bandwidth}
 
 \item{r}{the threshold value}
 

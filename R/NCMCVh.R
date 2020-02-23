@@ -1,13 +1,17 @@
 #' @title NCMCVh
 #' @description This routine calculate the cross validation value using NCM method.
-#' @inheritParams YAverage
+#' @param Y the observation, p * n matrix
+#' @inheritParams kernelCompute
+#' @inheritParams computeUdiff
+#' @inheritParams kernel_weight
+#' @param h the bandwidth, scalar
 #'
 #' @return the value of cross validation function
 
 NCMCVh <- function(Y, u, h, ktype = 'gaussian') {
     p <- nrow(Y)
     n <- ncol(Y)
-    weight = kernel_weight(u, bw = h, poly_order = 0, ktype)
+    weight <- kernel_weight(u, bw = h, poly_order = 0, ktype = ktype)
     cv <- 0
     for(i in 1:n) {
         covi <- CovDelete(Y[,-i], weight[i,-i])

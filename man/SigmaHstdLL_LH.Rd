@@ -9,9 +9,14 @@ SigmaHstdLL_LH(Y, u, h, ktype = "gaussian")
 \arguments{
 \item{Y}{the observation matrix}
 
-\item{u}{the condtion}
+\item{u}{the condition, it is a vector, one-dimensional array or
+one-dimensional row(column) matrix}
 
 \item{h}{the bandwidth, scalar}
+
+\item{ktype}{the kernel type, can be "gaussian", "epanech", "triweight",
+"biweight", "tricube", "triangular" and "cosine",
+the default of ktype is "gaussian".}
 }
 \value{
 the estimator of  diagonal entries at each given u_i.

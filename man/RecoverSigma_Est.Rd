@@ -4,16 +4,18 @@
 \alias{RecoverSigma_Est}
 \title{RecoverSigma_Est}
 \usage{
-RecoverSigma_Est(Y, u, h, u_test, ktype = "gaussian")
+RecoverSigma_Est(Y, u, h, u0, ktype = "gaussian")
 }
 \arguments{
 \item{Y}{the observation, p * n matrix}
 
-\item{u}{the condtion, 1 * n matrix}
+\item{u}{the condition, it is a vector, one-dimensional array or
+one-dimensional row(column) matrix}
 
 \item{h}{the bandwidth, scalar}
 
-\item{u_test}{the center of u for test}
+\item{u0}{the given condition to be estimated. The default is NULL.
+If u0 is NULL, then u0 = u.}
 
 \item{ktype}{the kernel type, can be "gaussian", "epanech", "triweight",
 "biweight", "tricube", "triangular" and "cosine",

@@ -5,7 +5,9 @@
 #' Here we use gaussian kerenel.
 #'
 #' @param Y the observation, p * n matrix
-#' @param u the condtion, 1 * n matrix
+#' @inheritParams kernelCompute
+#' @inheritParams computeUdiff
+#' @inheritParams kernel_weight
 #' @param h the bandwidth, scalar
 #'
 #' @return This function will return list object which contains 3 variables:
@@ -26,7 +28,7 @@
 #' h <- 0.1
 #' result <- YAverage(Y, u, h)
 #' }
-YAverage <- function(Y, u, h, ktype = 'gaussian') {
+YAverage <- function(Y, u, h, ktype = 'gaussian', poly_order = 0) {
     # p <- nrow(Y)
     # n <- ncol(Y)
     # u_mat <- matrix(rep(t(u), n), ncol = ncol(u), byrow = TRUE)
@@ -35,7 +37,7 @@ YAverage <- function(Y, u, h, ktype = 'gaussian') {
     # sumk <- rowSums(kernel)
     # weight <- kernel / replicate(n, sumk)
     # alpha <- sumk / (sumk - diag(kernel))
-    weight = kernel_weight(u, bw = h, poly_order = 0, ktype = ktype)
+    weight <- kernel_weight(u, bw = h, poly_order = poly_order, ktype = ktype)
     alpha <- 1 / (1 - diag(weight))
     # Product <- function(Y = Y, w) {
     #     return(Y %*% w)

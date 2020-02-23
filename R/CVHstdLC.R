@@ -4,7 +4,8 @@
 #' method when bandwidth is given.
 #'
 #' @param Y the observation matrix
-#' @param u the condtion
+#' @inheritParams kernelCompute
+#' @inheritParams computeUdiff
 #' @param h the bandwidth, scalar
 #'
 #' @return the cross validation value
@@ -23,7 +24,7 @@
 #'                    Y = Yresid_lc, u = u)
 #' abline(v = hstd_lc$minimum, col="red")
 #'}
-CVHstdLC  <- function(Y, u, h) {
+CVHstdLC  <- function(Y, u, h, ktype = 'gaussian') {
     p <- nrow(Y)
     n <- ncol(Y)
     # u_mat <- matrix(rep(t(u), n), ncol = ncol(u), byrow = TRUE)
@@ -31,7 +32,7 @@ CVHstdLC  <- function(Y, u, h) {
     # kernel <- dnorm(x) / h
     # sumk <- rowSums(kernel)
     # weight <- kernel / replicate(n, sumk)
-    weight = kernel_weight(u, bw = h, poly_order = 0)
+    weight <- kernel_weight(u, bw = h, ktype = ktype)
     cv <- 0
     for (i in 1:n) {
         w <- weight[i, -i]

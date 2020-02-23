@@ -4,10 +4,20 @@
 \alias{RhoEstAll}
 \title{RhoEstAll}
 \usage{
-RhoEstAll(yadd, ytime, u, u_test, h, ktype = "gaussian")
+RhoEstAll(yadd, ytime, u, u0, h, ktype = "gaussian")
 }
 \arguments{
-\item{ktype}{}
+\item{u}{the condition, it is a vector, one-dimensional array or
+one-dimensional row(column) matrix}
+
+\item{u0}{the given condition to be estimated. The default is NULL.
+If u0 is NULL, then u0 = u.}
+
+\item{h}{the bandwidth}
+
+\item{ktype}{the kernel type, can be "gaussian", "epanech", "triweight",
+"biweight", "tricube", "triangular" and "cosine",
+the default of ktype is "gaussian".}
 }
 \value{
 the correlation coefficient matrix
