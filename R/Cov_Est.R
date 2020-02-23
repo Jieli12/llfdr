@@ -11,6 +11,6 @@
 Cov_Est <- function(Y, u, u0 = NULL, h, ktype = 'gaussian', poly_order = 0) {
     weight <- kernel_weight(u = u, u0 = u0, bw = h,
                             poly_order = poly_order, ktype = ktype)
-    Cov <- tcrossprod(Y %*% diag(weight), Y)
+    Cov <- tcrossprod(Y %*% diag(as.vector(weight)), Y)
     return(Cov)
 }
