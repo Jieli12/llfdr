@@ -1,7 +1,8 @@
 #' @title CvRhoAll
-#' @description
-#' @param yadd
-#' @param ytime
+#' @description  This function computes the cross validation value of goal
+#' function
+#' @param yadd the sum
+#' @param ytime the product
 #' @inheritParams kernelCompute
 #' @inheritParams computeUdiff
 #' @inheritParams kernel_weight

@@ -7,6 +7,10 @@
 CvRhoAll(yadd, ytime, u, h, ktype = "gaussian")
 }
 \arguments{
+\item{yadd}{the sum}
+
+\item{ytime}{the product}
+
 \item{u}{the condition, it is a vector, one-dimensional array or
 one-dimensional row(column) matrix}
 
@@ -20,5 +24,6 @@ the default of ktype is "gaussian".}
 the value of cross validation
 }
 \description{
-CvRhoAll
+This function computes the cross validation value of goal
+function
 }

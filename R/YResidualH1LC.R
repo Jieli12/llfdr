@@ -2,7 +2,7 @@
 #'
 #' This function firstly estimates the local constant weighted
 #' average at each center u(i) given bandwidth h. Here we use gaussian kerenel.
-#' The return is the residual of Yi - \hat{Y}_{i}.
+#' The return is the residual of Yi - \\hat{Y}_{i}.
 #'
 #' @param Y the observation matrix
 #' @inheritParams kernelCompute

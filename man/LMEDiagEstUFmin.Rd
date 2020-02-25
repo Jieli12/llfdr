@@ -40,5 +40,5 @@ Ystd_LL_LH = Yresid_ll / sqrt(Sigma_LL_LH)
 }
 }
 \seealso{
-\code{\link{CVLL}},\code{\link{CVHstdLL}}
+\code{\link{CVLL}},\code{\link{CVHstdLL_LH}}
 }

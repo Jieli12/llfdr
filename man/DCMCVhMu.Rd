@@ -13,6 +13,8 @@ DCMCVhMu(Y, u, h, Y_res_h1, Index.y)
 
 \item{h}{the bandwidth, scalar}
 
+\item{Y_res_h1}{the residual}
+
 \item{Index.y}{the index of subset-y-variables}
 }
 \value{

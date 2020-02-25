@@ -6,9 +6,7 @@
 #' @param h the bandwidth, scalar
 #'
 #' @return the diagonal entries estimator
-#' @export
 #'
-#' @examples
 Sigma_Estu <- function(Y, u, h, u0, ktype = 'gaussian') {
     weight <- kernel_weight(u, u0 = u0, bw = h, poly_order = 1, ktype = ktype)
     Y2 <- Y^2

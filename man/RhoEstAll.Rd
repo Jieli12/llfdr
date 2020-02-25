@@ -7,6 +7,10 @@
 RhoEstAll(yadd, ytime, u, u0, h, ktype = "gaussian")
 }
 \arguments{
+\item{yadd}{the sum}
+
+\item{ytime}{the product}
+
 \item{u}{the condition, it is a vector, one-dimensional array or
 one-dimensional row(column) matrix}
 
@@ -23,5 +27,5 @@ the default of ktype is "gaussian".}
 the correlation coefficient matrix
 }
 \description{
-
+This function computes the estimator of coefficient.
 }

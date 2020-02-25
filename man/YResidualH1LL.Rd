@@ -24,7 +24,7 @@ the residuals
 \description{
 This function firstly estimates the local linear weighted
 average at each center u(i) given bandwidth h. Here we use gaussian kerenel.
-The return is the residual of Yi - \hat{Y}_{i}.
+The return is the residual of Yi - \\hat{Y}_{i}.
 }
 \examples{
 \dontrun{

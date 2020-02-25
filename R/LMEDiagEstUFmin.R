@@ -11,7 +11,7 @@
 #'
 #' @return the estimator of  diagonal entries at each given u0.
 #' @export
-#' @seealso \code{\link{CVLL}},\code{\link{CVHstdLL}}
+#' @seealso \code{\link{CVLL}},\code{\link{CVHstdLL_LH}}
 #' @examples \dontrun{
 #'
 #' data(Yresid_ll)

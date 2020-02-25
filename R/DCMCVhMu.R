@@ -6,6 +6,7 @@
 #' @param u the condtion
 #' @param h the bandwidth, scalar
 #' @param Index.y the index of subset-y-variables
+#' @param Y_res_h1 the residual
 #'
 #' @return the value of cross validation
 #' @seealso \code{\link{CVLC}}

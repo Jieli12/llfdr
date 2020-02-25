@@ -6,9 +6,6 @@
 #' @param x a numeric vector
 #'
 #' @return a vector which each entry is non-negative
-#' @export
-#'
-#' @examples
 interpolate <- function(x) {
     ind <- x < 0
     if (all(ind)) {

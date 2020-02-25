@@ -1,8 +1,7 @@
 #' @title RhoEstAll
-#' @description
-#'
-#' @param yadd
-#' @param ytime
+#' @description This function computes the estimator of coefficient.
+#' @param yadd the sum
+#' @param ytime the product
 #' @inheritParams kernelCompute
 #' @inheritParams computeUdiff
 #' @inheritParams kernel_weight

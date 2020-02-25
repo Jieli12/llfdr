@@ -10,7 +10,7 @@
 #'
 #' @return the estimator of  diagonal entries at each given u_i.
 #' @export
-#' @seealso \code{\link{CVLL}},\code{\link{CVHstdLL}}
+#' @seealso \code{\link{CVLL}},\code{\link{CVHstdLL_LS}}
 #' @examples \dontrun{
 #'
 #' data(Yresid_ll)
