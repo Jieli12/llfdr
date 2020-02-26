@@ -4,6 +4,8 @@
 #' @inheritParams LMEBeta2
 #'
 #' @return the optimal bandwidth
+#' @importFrom stats optimise
+#' @export
 
 Optimise_LMEBeta2 <- function(y2, expu, k, uk, SK, SUK) {
     v <- optimise(LMEBeta2, c(-1000, 1000), tol = 1e-6,

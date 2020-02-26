@@ -6,6 +6,8 @@
 #' one-dimensional row(column) matrix
 #'
 #' @return p * p * length(u) size matrix
+#' @importFrom stats dnorm
+#' @export
 Sigma_Gen_Model1 <- function(p, u) {
     n <- length(u)
     Sigma <- array(0, dim = c(p, p, n))
