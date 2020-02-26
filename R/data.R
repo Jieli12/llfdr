@@ -129,7 +129,7 @@
 "thdcm1"
 
 #' @title The threshold value
-#' @description The threshold value was computed by \code{\link{DCNCV_ThMu}}
+#' @description The threshold value was computed by \code{\link{DCMCV_ThMu}}
 #' @usage data(thdcm2)
 "thdcm2"
 
@@ -138,3 +138,7 @@
 #' @usage data(hncm)
 "hncm"
 
+#' @title The threshold value
+#' @description The threshold value was computed by \code{\link{CV_Th}}
+#' @usage data(thncm)
+"thncm"
