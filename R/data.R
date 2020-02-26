@@ -123,3 +123,18 @@
 #' @usage data(hdcm2)
 "hdcm2"
 
+#' @title The threshold value
+#' @description The threshold value was computed by \code{\link{CV_Th}}
+#' @usage data(thdcm1)
+"thdcm1"
+
+#' @title The threshold value
+#' @description The threshold value was computed by \code{\link{DCNCV_ThMu}}
+#' @usage data(thdcm2)
+"thdcm2"
+
+#' @title The bandwidth
+#' @description The bandwidth was computed by \code{\link{NCMCVh}}
+#' @usage data(hncm)
+"hncm"
+

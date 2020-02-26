@@ -11,7 +11,7 @@
 #'
 #' @return the value of cross validation function
 #' @export
-#' @seealso \code{\link{DCMCVh}}
+#' @seealso \code{\link{DCMCVh}}, \code{\link{Cov_Est}}
 #' @examples \dontrun{
 #'
 #' data(u)
@@ -30,6 +30,17 @@
 #'     thdcm1_temp <- optimise(CV_Th, c(a, b1), tol = 1e-6, Yi = Yresid_lc, u = u,
 #'                   Index.obs = Index.obs, u0 = u0[i], h = hdcm1$minimum)
 #'     thdcm1[i] <-thdcm1_temp$minimum
+#' }
+#'
+#' # NCM, threshold value selection
+#' data(Ystd_LC)
+#' data(hncm)
+#' thncm  <- rep(0, u0_len)
+#' for (i in 1:u0_len) {
+#'     b1 <- bcoef * max(Cov_Est(Y = Ystd_LC, u = u, u0 = u0[i], h = hncm$minimum))
+#'     thncm_temp <- optimise(CV_Th, c(a, b1), tol = 1e-8, Yi = Ystd_LC, u = u,
+#'                   Index.obs = Index.obs, u0 = u0[i], h = hncm$minimum)
+#'     thncm[i] <-thncm_temp$minimum
 #' }
 #' }
 CV_Th <- function(Yi, u, Index.obs, u0, h, r, ktype = 'gaussian') {
