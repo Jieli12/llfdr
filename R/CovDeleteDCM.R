@@ -19,6 +19,7 @@
 #' for details.
 #'
 #' @return the covariance when deleting the ith observation
+#' @export
 
 CovDeleteDCM <- function(Y, Aver_i, Residual_i, Weight_i, Alpha_i) {
     Cov1 <- tcrossprod(Y %*% diag(Weight_i), Y) - tcrossprod(Aver_i)

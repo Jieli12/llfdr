@@ -9,6 +9,7 @@
 #' u - u0_i
 #' @return a matrix of difference of u and u0
 #' @seealso \code{\link{kernel_weight}}
+#' @export
 #' @examples \dontrun{
 #'
 #' u <- 1:5

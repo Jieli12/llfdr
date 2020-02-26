@@ -10,6 +10,7 @@
 #' @param r the threshold value
 #'
 #' @return the value of cross validation function
+#' @export
 #' @seealso \code{\link{DCMCVh}}
 #' @examples \dontrun{
 #'

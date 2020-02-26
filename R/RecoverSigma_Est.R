@@ -12,6 +12,7 @@
 #'              the default of ktype is "gaussian".
 #'
 #' @return the  sigma
+#' @export
 
 RecoverSigma_Est <- function(Y, u, h, u0, ktype = 'gaussian') {
     # u0 <- matrix(u0, nrow = 1)

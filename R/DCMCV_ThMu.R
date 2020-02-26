@@ -8,7 +8,7 @@
 #' @param Index.obs the index of observation
 #' @param h the  bandwidth
 #' @param r the threshold value
-#'
+#' @export
 #' @return the value of cross validation function
 DCMCV_ThMu <- function(Yi, u, Index.obs, u0, h, r, ktype = 'gaussian') {
     N1 <- ncol(Index.obs)

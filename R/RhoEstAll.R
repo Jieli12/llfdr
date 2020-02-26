@@ -6,7 +6,7 @@
 #' @inheritParams computeUdiff
 #' @inheritParams kernel_weight
 #' @param h the bandwidth
-#'
+#' @export
 #' @return the correlation coefficient matrix
 
 RhoEstAll <- function(yadd, ytime, u, u0, h, ktype = 'gaussian')  {

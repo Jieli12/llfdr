@@ -5,7 +5,7 @@
 #' @param w the weight
 #' @param Cov the covariance when the i-th deleted
 #' @param Ind_t0 the indicator matrix
-#'
+#' @export
 #' @return the shrinkage covariance
 Shrinkage <- function(Y, w, Cov, Ind_t0) {
     p <- nrow(Y)

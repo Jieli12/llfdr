@@ -5,7 +5,7 @@
 #' @inheritParams computeUdiff
 #' @inheritParams kernel_weight
 #' @param h the bandwidth, scalar
-#'
+#' @export
 #' @return the value of cross validation function
 
 NCMCVh <- function(Y, u, h, ktype = 'gaussian') {

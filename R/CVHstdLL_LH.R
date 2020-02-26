@@ -7,7 +7,7 @@
 #' @param h the bandwidth, scalar
 #'
 #' @return the value of cross validation
-
+#' @export
 #' @seealso \code{\link{CVLL}}
 #' @examples \dontrun{
 #'

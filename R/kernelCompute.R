@@ -7,6 +7,7 @@
 #' @param bw bandwidth, default is 0.1
 #'
 #' @return kernel matrix
+#' @export
 #'
 #' @seealso \code{\link{computeUdiff}}, \code{\link{kernel_weight}}
 #' @examples \dontrun{

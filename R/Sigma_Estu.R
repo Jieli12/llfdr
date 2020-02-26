@@ -4,7 +4,7 @@
 #' @inheritParams kernelCompute
 #' @inheritParams computeUdiff
 #' @param h the bandwidth, scalar
-#'
+#' @export
 #' @return the diagonal entries estimator
 #'
 Sigma_Estu <- function(Y, u, h, u0, ktype = 'gaussian') {

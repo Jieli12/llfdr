@@ -8,6 +8,7 @@
 #' @param h the bandwidth
 #'
 #' @return the covariance matrix
+#' @export
 Cov_EstMu <- function(Y, u, u0 = NULL, h, ktype = 'gaussian', poly_order = 0) {
     weight <- kernel_weight(u = u, u0 = u0, bw = h,
                             poly_order = poly_order, ktype = ktype)

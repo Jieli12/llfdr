@@ -12,7 +12,7 @@
 #'
 #' @title ShrinkageCoefLC
 #' @description  This function computes the shrinkage covariance after threshold .
-#'
+#' @export
 #' @return the shrinkage covariance
 
 

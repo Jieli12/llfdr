@@ -8,6 +8,7 @@
 #'                  while 1 represents the local linear smoother, default is 0.
 #'
 #' @return the weight matrix
+#' @export
 #' @seealso \code{\link{computeUdiff}}, \code{\link{kernelCompute}}
 #' @examples \dontrun{
 #'

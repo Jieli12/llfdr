@@ -7,7 +7,7 @@
 #' @inheritParams computeUdiff
 #' @inheritParams kernel_weight
 #' @param h the bandwidth
-#'
+#' @export
 #' @return the value of cross validation
 
 CvRhoAll <- function(yadd, ytime, u, h, ktype = 'gaussian') {

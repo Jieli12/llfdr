@@ -9,6 +9,7 @@
 #' @param Y_res_h1 the residual
 #'
 #' @return the value of cross validation
+#' @export
 #' @seealso \code{\link{CVLC}}
 #' @examples \dontrun{
 #'

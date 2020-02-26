@@ -4,7 +4,7 @@
 #' entry with 1e-4.
 #'
 #' @param x a numeric vector
-#'
+#' @export
 #' @return a vector which each entry is non-negative
 interpolate <- function(x) {
     ind <- x < 0

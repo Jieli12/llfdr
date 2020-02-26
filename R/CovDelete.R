@@ -6,7 +6,7 @@
 #' @param weight_del the vector when the i-th entry is deleted
 #'
 #' @return covariance estimator
-#'
+#' @export
 CovDelete <- function(Y_del, weight_del) {
     tem <- sum(weight_del)
     if (tem == 0) {

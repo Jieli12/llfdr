@@ -27,6 +27,7 @@
 #'         ith element of h is 1, then the test that produced the ith p-value
 #'         in pvals is significant
 #'         (i.e., the null hypothesisof the test is rejected).
+#' @export
 fdr_bh <- function(pvals, q = 0.05, method = 'pdep') {
     # sort_result <- sort(pvals, index.return = TRUE)
     # p_sorted <- sort_result$x

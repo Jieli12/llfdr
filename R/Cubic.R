@@ -4,6 +4,7 @@
 #' @param b the
 #'
 #' @return the real solution
+#' @export
 
 Cubic <- function(a, b) {
     p <- 3 * (a - 1) - b^2

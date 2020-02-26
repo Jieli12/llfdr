@@ -10,6 +10,7 @@
 #' @param Index.y the index of subset-y-variables
 #'
 #' @return the value of cross validation
+#' @export
 #' @seealso \code{\link{CVLC}}
 #' @examples \dontrun{
 #'

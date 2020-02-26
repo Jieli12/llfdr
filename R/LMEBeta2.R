@@ -9,7 +9,7 @@
 #' @param uk the (u_j - u_i) * kernel
 #' @param SK summation of kernel
 #' @param SUK summation of kernel * u
-#'
+#' @export
 #' @return goal function value
 
 LMEBeta2 <- function(v, y2, expu, k, uk, SK, SUK) {
