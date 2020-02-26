@@ -31,3 +31,28 @@ the value of cross validation function
 \description{
 This routine computes the goal function for optimal threshold value
 }
+\examples{
+\dontrun{
+
+data(u)
+data(Yresid_lc)
+data(Index.obs)
+data(hdcm1)
+u <- as.vector(u)
+
+u0_len <- 25
+u0 <- seq(-0.9, 0.9, length.out = u0_len)
+a <- 0
+bcoef <- 0.6
+thdcm1  <- rep(0, u0_len)
+for (i in 1:u0_len) {
+    b1 <- bcoef * max(Cov_Est(Y = Yresid_lc, u = u, u0 = u0[i], h = hdcm1$minimum))
+    thdcm1_temp <- optimise(CV_Th, c(a, b1), tol = 1e-6, Yi = Yresid_lc, u = u,
+                  Index.obs = Index.obs, u0 = u0[i], h = hdcm1$minimum)
+    thdcm1[i] <-thdcm1_temp$minimum
+}
+}
+}
+\seealso{
+\code{\link{DCMCVh}}
+}
