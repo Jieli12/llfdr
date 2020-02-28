@@ -7,8 +7,8 @@
 
 #' @export
 
-Optimise_LMEBeta2 <- function(y2, expu, k, uk, SK, SUK) {
-    v <- optimise(LMEBeta2, c(-100, 100), tol = 1e-6,
-             y2 = y2, expu = expu, k = k, uk = uk, SK = SK, SUK = SUK)
-    return(v$minimum)
+Optimise_LMEBeta2 <- function(y2, expu, mat_uk, r0) {
+    v <- uniroot(LMEBeta2, c(-100, 100), tol = 1e-6,
+             y2 = y2, expu = expu, mat_uk = mat_uk, r0 = r0)
+    return(v$root)
 }
