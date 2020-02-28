@@ -4,26 +4,16 @@
 \alias{DCMCV_ThMu}
 \title{DCMCV_ThMu}
 \usage{
-DCMCV_ThMu(Yi, u, Index.obs, u0, h, r, ktype = "gaussian")
+DCMCV_ThMu(Yi, weight, Index.obs, r)
 }
 \arguments{
 \item{Yi}{the p * n matrix}
 
-\item{u}{the condition, it is a vector, one-dimensional array or
-one-dimensional row(column) matrix}
+\item{weight}{the weight at u0}
 
 \item{Index.obs}{the index of observation}
 
-\item{u0}{the given condition to be estimated. The default is NULL.
-If u0 is NULL, then u0 = u.}
-
-\item{h}{the  bandwidth}
-
 \item{r}{the threshold value}
-
-\item{ktype}{the kernel type, can be "gaussian", "epanech", "triweight",
-"biweight", "tricube", "triangular" and "cosine",
-the default of ktype is "gaussian".}
 }
 \value{
 the value of cross validation function
@@ -45,10 +35,11 @@ u0 <- seq(-0.9, 0.9, length.out = u0_len)
 a <- 0
 bcoef <- 0.6
 thdcm2  <- rep(0, u0_len)
+Weight <- kernel_weight(u, u0 = u0, ktype = 'gaussian', bw = hdcm2$minimum)
 for (i in 1:u0_len) {
-    b2 <- bcoef * max(Cov_EstMu(Y = Y, u = u, u0 = u0[i], h = hdcm2$minimum))
-    thdcm2_temp <- optimise(DCMCV_ThMu, c(a, b2), tol = 1e-6, Yi = Y, u = u,
-                  Index.obs = Index.obs, u0 = u0[i], h = hdcm2$minimum)
+    b2 <- bcoef * max(Cov_EstMu(Y = Y, weight = Weight[i,]))
+    thdcm2_temp <- optimise(DCMCV_ThMu, c(a, b2), tol = 1e-6, Yi = Y,
+                  weight = Weight[i,], Index.obs = Index.obs)
     thdcm2[i] <-thdcm2_temp$minimum
 }
 }
