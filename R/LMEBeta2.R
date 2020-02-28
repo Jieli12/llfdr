@@ -14,8 +14,9 @@
 
 LMEBeta2 <- function(v, y2, expu, k, uk, SK, SUK) {
     B <- y2 / (expu^v)
+    # B <- y2 * expu^(-v)
     SBK <- B %*% k
     SBUK <- B %*% uk
-    f <- (SBUK / SBK - SUK / SK)^2
-    return(f)
+    # f <- (SBUK / SBK - SUK / SK)^2
+    return((SBUK / SBK - SUK / SK)^2)
 }
