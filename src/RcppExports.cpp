@@ -5,6 +5,23 @@
 
 using namespace Rcpp;
 
+// LMEBeta2C
+double LMEBeta2C(double v, NumericVector y2, NumericVector expu, NumericVector k, NumericVector uk, double SK, double SUK);
+RcppExport SEXP _llfdr_LMEBeta2C(SEXP vSEXP, SEXP y2SEXP, SEXP expuSEXP, SEXP kSEXP, SEXP ukSEXP, SEXP SKSEXP, SEXP SUKSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< double >::type v(vSEXP);
+    Rcpp::traits::input_parameter< NumericVector >::type y2(y2SEXP);
+    Rcpp::traits::input_parameter< NumericVector >::type expu(expuSEXP);
+    Rcpp::traits::input_parameter< NumericVector >::type k(kSEXP);
+    Rcpp::traits::input_parameter< NumericVector >::type uk(ukSEXP);
+    Rcpp::traits::input_parameter< double >::type SK(SKSEXP);
+    Rcpp::traits::input_parameter< double >::type SUK(SUKSEXP);
+    rcpp_result_gen = Rcpp::wrap(LMEBeta2C(v, y2, expu, k, uk, SK, SUK));
+    return rcpp_result_gen;
+END_RCPP
+}
 // xwxk1
 NumericMatrix xwxk1(NumericMatrix x, NumericVector w);
 RcppExport SEXP _llfdr_xwxk1(SEXP xSEXP, SEXP wSEXP) {
@@ -19,6 +36,7 @@ END_RCPP
 }
 
 static const R_CallMethodDef CallEntries[] = {
+    {"_llfdr_LMEBeta2C", (DL_FUNC) &_llfdr_LMEBeta2C, 7},
     {"_llfdr_xwxk1", (DL_FUNC) &_llfdr_xwxk1, 2},
     {NULL, NULL, 0}
 };
