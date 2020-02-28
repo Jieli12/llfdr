@@ -63,13 +63,15 @@ CVHstdLL_LH <- function(Y, u, h, ktype = 'gaussian') {
         SK <- sum(k_del_i)
         SUK <- sum(uk_del_i)
         Y2_i <- Y2[, -i]
-        v <- rep(0, p)
-        for (j in 1:p) {
-            y2_del_i <- Y2_i[j, ]
-            v[j] <- Optimise_LMEBeta2(y2 = y2_del_i, expu = expu_del_i,
-                                   k = k_del_i, uk = uk_del_i,
-                                   SK = SK, SUK = SUK)
-        }
+        # v <- rep(0, p)
+        # for (j in 1:p) {
+        #     y2_del_i <- Y2_i[j, ]
+        #     v[j] <- Optimise_LMEBeta2(y2 = y2_del_i, expu = expu_del_i,
+        #                            k = k_del_i, uk = uk_del_i,
+        #                            SK = SK, SUK = SUK)
+        # }
+        v <- apply(Y2_i, 1, Optimise_LMEBeta2, expu = expu_del_i,
+              k = k_del_i, uk = uk_del_i, SK = SK, SUK = SUK)
         B <- Y2_i / t(outer(expu_del_i, v, '^'))
         SBK <- B %*% k_del_i
         Ai <- SBK / SK
