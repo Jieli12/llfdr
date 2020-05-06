@@ -4,7 +4,9 @@
 \name{Index.y}
 \alias{Index.y}
 \title{Index of subset-y}
-\format{An object of class \code{matrix} with 4 rows and 50 columns.}
+\format{
+An object of class \code{matrix} with 4 rows and 50 columns.
+}
 \usage{
 data(Index.y)
 }

@@ -4,7 +4,9 @@
 \name{thdcm1}
 \alias{thdcm1}
 \title{The threshold value}
-\format{An object of class \code{numeric} of length 25.}
+\format{
+An object of class \code{numeric} of length 25.
+}
 \usage{
 data(thdcm1)
 }

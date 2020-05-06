@@ -4,7 +4,9 @@
 \name{hstd_LL_LH}
 \alias{hstd_LL_LH}
 \title{The bandwidth}
-\format{An object of class \code{list} of length 2.}
+\format{
+An object of class \code{list} of length 2.
+}
 \usage{
 data(hstd_LL_LH)
 }

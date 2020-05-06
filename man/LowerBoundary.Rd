@@ -4,7 +4,9 @@
 \name{LowerBoundary}
 \alias{LowerBoundary}
 \title{Lower Boundary}
-\format{An object of class \code{matrix} with 1 rows and 1 columns.}
+\format{
+An object of class \code{matrix} with 1 rows and 1 columns.
+}
 \usage{
 data(LowerBoundary)
 }

@@ -1,6 +1,6 @@
 #' GLR
 #' @description this routine computes the p value using generalized likelihood
-#' ratio statistics
+#' ratio statistics \insertCite{Fan2001a}{llfdr}
 #'
 #' @param res_linear the residual of linear model
 #' @param res_nonlinear the residual of nonlinear model
@@ -10,7 +10,9 @@
 #'
 #' @return the p value of chi square test
 #' @export
+#' @references \insertRef{Fan2001a}{llfdr}
 #'
+
 GLR <- function(res_linear, res_nonlinear, h, len_interval, n){
     lambda <- log(sum(res_linear^2) / sum(res_nonlinear^2)) * n / 2
     rk <- 2.53750769446292

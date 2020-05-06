@@ -4,7 +4,9 @@
 \name{Ystd_LC}
 \alias{Ystd_LC}
 \title{The standardization of Y}
-\format{An object of class \code{matrix} with 50 rows and 100 columns.}
+\format{
+An object of class \code{matrix} with 50 rows and 100 columns.
+}
 \usage{
 data(Ystd_LC)
 }

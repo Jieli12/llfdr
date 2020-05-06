@@ -4,7 +4,9 @@
 \name{Yresid_lc}
 \alias{Yresid_lc}
 \title{The residual}
-\format{An object of class \code{matrix} with 50 rows and 100 columns.}
+\format{
+An object of class \code{matrix} with 50 rows and 100 columns.
+}
 \usage{
 data(Yresid_lc)
 }

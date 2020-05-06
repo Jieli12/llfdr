@@ -4,7 +4,9 @@
 \name{Sigma_LL_LH}
 \alias{Sigma_LL_LH}
 \title{The Estimator of Diagonal Entries}
-\format{An object of class \code{matrix} with 50 rows and 100 columns.}
+\format{
+An object of class \code{matrix} with 50 rows and 100 columns.
+}
 \usage{
 data(Sigma_LL_LH)
 }
