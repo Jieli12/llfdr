@@ -13,6 +13,8 @@ data(Index.obs)
 \description{
 The subset of observations, size: 78 * 100, is used for thresholding.
  For more details, see Bickel, P. J. and Levina, E. (2008).
- Covariance regularization by thresholding. The Annals of Statistics, 36(6):2577–2604.
+}
+\references{
+\insertRef{bickelCovarianceRegularizationThresholding2008}{llfdr}
 }
 \keyword{datasets}
