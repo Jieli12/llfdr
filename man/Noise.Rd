@@ -5,7 +5,7 @@
 \alias{Noise}
 \title{The Noise Matrix}
 \format{
-An object of class \code{matrix} with 50 rows and 100 columns.
+An object of class \code{matrix} (inherits from \code{array}) with 50 rows and 100 columns.
 }
 \usage{
 data(Noise)

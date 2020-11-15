@@ -5,7 +5,7 @@
 \alias{Sigma}
 \title{The Covariance Matrix}
 \format{
-An object of class \code{matrix} with 50 rows and 50 columns.
+An object of class \code{matrix} (inherits from \code{array}) with 50 rows and 50 columns.
 }
 \usage{
 data(Sigma)

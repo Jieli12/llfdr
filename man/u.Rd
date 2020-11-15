@@ -5,7 +5,7 @@
 \alias{u}
 \title{The condition}
 \format{
-An object of class \code{matrix} with 1 rows and 100 columns.
+An object of class \code{matrix} (inherits from \code{array}) with 1 rows and 100 columns.
 }
 \usage{
 data(u)

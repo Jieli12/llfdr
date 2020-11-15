@@ -5,7 +5,7 @@
 \alias{Index.obs}
 \title{Index of observations}
 \format{
-An object of class \code{matrix} with 78 rows and 100 columns.
+An object of class \code{matrix} (inherits from \code{array}) with 78 rows and 100 columns.
 }
 \usage{
 data(Index.obs)

@@ -5,7 +5,7 @@
 \alias{LowerBoundary}
 \title{Lower Boundary}
 \format{
-An object of class \code{matrix} with 1 rows and 1 columns.
+An object of class \code{matrix} (inherits from \code{array}) with 1 rows and 1 columns.
 }
 \usage{
 data(LowerBoundary)
