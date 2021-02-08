@@ -4,7 +4,9 @@
 \name{Y}
 \alias{Y}
 \title{The data}
-\format{A data \code{matrix} with 50 rows and 100 columns.}
+\format{
+A data \code{matrix} with 50 rows and 100 columns.
+}
 \usage{
 data(Y)
 }

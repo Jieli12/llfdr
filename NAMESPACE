@@ -1,4 +1,5 @@
 useDynLib(llfdr, .registration=TRUE)
 exportPattern("^[[:alpha:]]+")
 importFrom(Rcpp, evalCpp)
-importFrom("stats", "dnorm", "optimise")
+importFrom("stats", "dnorm", "optimise", "uniroot", "pchisq")
+importFrom(Rdpack, reprompt)

@@ -33,17 +33,17 @@
 
 #' @title Index of subset-y
 #' @description The subset of y variables, size: 4 * 50. For more details, see
-#'  Chen, Z. and Leng, C., 2016. Dynamic covariance models.
-#'  Journal of the American Statistical Association, 111(515), pp.1196-1207.
+#'  Chen, Z. and Leng, C.(2016).
 #' @usage data(Index.y)
+#' @references \insertRef{chenDynamicCovarianceModels2016}{llfdr}
 "Index.y"
 
 
 #' @title Index of observations
 #' @description The subset of observations, size: 78 * 100, is used for thresholding.
 #'  For more details, see Bickel, P. J. and Levina, E. (2008).
-#'  Covariance regularization by thresholding. The Annals of Statistics, 36(6):2577–2604.
 #' @usage data(Index.obs)
+#' @references \insertRef{bickelCovarianceRegularizationThresholding2008}{llfdr}
 "Index.obs"
 
 #' @title Bandwidth

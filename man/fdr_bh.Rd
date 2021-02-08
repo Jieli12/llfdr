@@ -30,8 +30,8 @@ A binary vector of the same size as the input "pvals." If the
         (i.e., the null hypothesisof the test is rejected).
 }
 \description{
-Executes the Benjamini & Hochberg (1995) and the Benjamini &
-            Yekutieli (2001) procedure for controlling the false discovery
+Executes the \insertCite{benjaminiControllingFalseDiscovery1995;textual}{llfdr}
+          and the \insertCite{benjaminiControlFalseDiscovery2001;textual}{llfdr} procedure for controlling the false discovery
             rate (FDR) of a family of hypothesis tests. FDR is the expected
             proportion of rejected hypotheses that are mistakenly rejected
             (i.e., the null hypothesis is actually true for those tests).
@@ -40,4 +40,9 @@ Executes the Benjamini & Hochberg (1995) and the Benjamini &
             correction that provide strong control of the family-wise
             error rate (i.e., the probability that one or more null
              hypotheses are mistakenly rejected).
+}
+\references{
+\insertRef{benjaminiControllingFalseDiscovery1995}{llfdr}
+
+\insertRef{benjaminiControlFalseDiscovery2001}{llfdr}
 }

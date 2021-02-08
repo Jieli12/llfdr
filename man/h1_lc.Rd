@@ -4,7 +4,9 @@
 \name{h1_lc}
 \alias{h1_lc}
 \title{Bandwidth}
-\format{An object of class \code{list} of length 2.}
+\format{
+An object of class \code{list} of length 2.
+}
 \usage{
 data(h1_lc)
 }

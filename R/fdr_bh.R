@@ -1,6 +1,6 @@
 #' @title fdr_bh
-#' @description Executes the Benjamini & Hochberg (1995) and the Benjamini &
-#'             Yekutieli (2001) procedure for controlling the false discovery
+#' @description Executes the \insertCite{benjaminiControllingFalseDiscovery1995;textual}{llfdr}
+#'           and the \insertCite{benjaminiControlFalseDiscovery2001;textual}{llfdr} procedure for controlling the false discovery
 #'             rate (FDR) of a family of hypothesis tests. FDR is the expected
 #'             proportion of rejected hypotheses that are mistakenly rejected
 #'             (i.e., the null hypothesis is actually true for those tests).
@@ -28,6 +28,11 @@
 #'         in pvals is significant
 #'         (i.e., the null hypothesisof the test is rejected).
 #' @export
+#' @references
+#' \insertRef{benjaminiControllingFalseDiscovery1995}{llfdr}
+#'
+#' \insertRef{benjaminiControlFalseDiscovery2001}{llfdr}
+#'
 fdr_bh <- function(pvals, q = 0.05, method = 'pdep') {
     # sort_result <- sort(pvals, index.return = TRUE)
     # p_sorted <- sort_result$x

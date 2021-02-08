@@ -4,13 +4,17 @@
 \name{Index.y}
 \alias{Index.y}
 \title{Index of subset-y}
-\format{An object of class \code{matrix} with 4 rows and 50 columns.}
+\format{
+An object of class \code{matrix} (inherits from \code{array}) with 4 rows and 50 columns.
+}
 \usage{
 data(Index.y)
 }
 \description{
 The subset of y variables, size: 4 * 50. For more details, see
- Chen, Z. and Leng, C., 2016. Dynamic covariance models.
- Journal of the American Statistical Association, 111(515), pp.1196-1207.
+ Chen, Z. and Leng, C.(2016).
+}
+\references{
+\insertRef{chenDynamicCovarianceModels2016}{llfdr}
 }
 \keyword{datasets}

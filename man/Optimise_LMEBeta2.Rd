@@ -4,20 +4,16 @@
 \alias{Optimise_LMEBeta2}
 \title{Optimise_LMEBeta2}
 \usage{
-Optimise_LMEBeta2(y2, expu, k, uk, SK, SUK)
+Optimise_LMEBeta2(y2, expu, mat_uk, r0)
 }
 \arguments{
 \item{y2}{the square of y}
 
 \item{expu}{the exp(u_j - u_i)}
 
-\item{k}{the kernel}
+\item{mat_uk}{the matrix, the first row is k, the secound row is u * k}
 
-\item{uk}{the (u_j - u_i) * kernel}
-
-\item{SK}{summation of kernel}
-
-\item{SUK}{summation of kernel * u}
+\item{r0}{the ratio of SUK to SK}
 }
 \value{
 the optimal bandwidth

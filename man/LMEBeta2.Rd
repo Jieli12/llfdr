@@ -4,7 +4,7 @@
 \alias{LMEBeta2}
 \title{LMEBeta2}
 \usage{
-LMEBeta2(v, y2, expu, k, uk, SK, SUK)
+LMEBeta2(v, y2, expu, mat_uk, r0)
 }
 \arguments{
 \item{v}{the beta when the i-th observation deleted}
@@ -13,18 +13,14 @@ LMEBeta2(v, y2, expu, k, uk, SK, SUK)
 
 \item{expu}{the exp(u_j - u_i)}
 
-\item{k}{the kernel}
+\item{mat_uk}{the matrix, the first row is k, the secound row is u * k}
 
-\item{uk}{the (u_j - u_i) * kernel}
-
-\item{SK}{summation of kernel}
-
-\item{SUK}{summation of kernel * u}
+\item{r0}{the ratio of SUK to SK}
 }
 \value{
 goal function value
 }
 \description{
 This function is used to compute the delete-i beta goal
-function f = (sbuk / sbk - suk / sk)^2;
+function f = sbuk - sbk * r0
 }

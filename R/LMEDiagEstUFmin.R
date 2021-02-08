@@ -63,14 +63,15 @@ LMEDiagEstUFmin  <- function(Y, u, u0, h, ktype = 'gaussian')  {
         expu_i <- ExpU_mat[i, ]
         k_i <- K[i, ]
         uk_i <- UK_mat[i, ]
+        mat_uk <- rbind(k_i, uk_i)
         SK <- SK_rowsum[i]
         SUK <- SUK_rowsum[i]
+        r0 <- SUK / SK
         v <- rep(0, p)
         for (j in 1:p) {
             y2_i <- Y2[j, ]
             v[j] <- Optimise_LMEBeta2(y2 = y2_i, expu = expu_i,
-                                      k = k_i, uk = uk_i,
-                                      SK = SK, SUK = SUK)
+                                      mat_uk = mat_uk, r0 = r0)
         }
         B <- Y2 / t(outer(expu_i, v, '^'))
         CovDiag[, i] <- B %*% k_i / SK

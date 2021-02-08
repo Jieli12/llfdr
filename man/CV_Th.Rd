@@ -4,26 +4,16 @@
 \alias{CV_Th}
 \title{CV_Th}
 \usage{
-CV_Th(Yi, u, Index.obs, u0, h, r, ktype = "gaussian")
+CV_Th(Yi, weight, Index.obs, r)
 }
 \arguments{
 \item{Yi}{the p * n matrix}
 
-\item{u}{the condition, it is a vector, one-dimensional array or
-one-dimensional row(column) matrix}
+\item{weight}{the weight at u0}
 
 \item{Index.obs}{the index of observation}
 
-\item{u0}{the given condition to be estimated. The default is NULL.
-If u0 is NULL, then u0 = u.}
-
-\item{h}{the  bandwidth}
-
 \item{r}{the threshold value}
-
-\item{ktype}{the kernel type, can be "gaussian", "epanech", "triweight",
-"biweight", "tricube", "triangular" and "cosine",
-the default of ktype is "gaussian".}
 }
 \value{
 the value of cross validation function
@@ -45,10 +35,11 @@ u0 <- seq(-0.9, 0.9, length.out = u0_len)
 a <- 0
 bcoef <- 0.6
 thdcm1  <- rep(0, u0_len)
+Weight <- kernel_weight(u, u0 = u0, ktype = 'gaussian', bw = hdcm1$minimum)
 for (i in 1:u0_len) {
-    b1 <- bcoef * max(Cov_Est(Y = Yresid_lc, u = u, u0 = u0[i], h = hdcm1$minimum))
-    thdcm1_temp <- optimise(CV_Th, c(a, b1), tol = 1e-6, Yi = Yresid_lc, u = u,
-                  Index.obs = Index.obs, u0 = u0[i], h = hdcm1$minimum)
+    b1 <- bcoef * max(Cov_Est(Y = Yresid_lc, Weight[i,]))
+    thdcm1_temp <- optimise(CV_Th, c(a, b1), tol = 1e-6, Yi = Yresid_lc,
+                  weight = Weight[i,], Index.obs = Index.obs)
     thdcm1[i] <-thdcm1_temp$minimum
 }
 
@@ -56,10 +47,11 @@ for (i in 1:u0_len) {
 data(Ystd_LC)
 data(hncm)
 thncm  <- rep(0, u0_len)
+Weight <- kernel_weight(u, u0 = u0, ktype = 'gaussian', bw = hncm$minimum)
 for (i in 1:u0_len) {
-    b1 <- bcoef * max(Cov_Est(Y = Ystd_LC, u = u, u0 = u0[i], h = hncm$minimum))
-    thncm_temp <- optimise(CV_Th, c(a, b1), tol = 1e-8, Yi = Ystd_LC, u = u,
-                  Index.obs = Index.obs, u0 = u0[i], h = hncm$minimum)
+    b1 <- bcoef * max(Cov_Est(Y = Ystd_LC, Weight[i,]))
+    thncm_temp <- optimise(CV_Th, c(a, b1), tol = 1e-8, Yi = Ystd_LC,
+                  weight = Weight[i,], Index.obs = Index.obs)
     thncm[i] <-thncm_temp$minimum
 }
 }

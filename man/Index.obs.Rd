@@ -4,13 +4,17 @@
 \name{Index.obs}
 \alias{Index.obs}
 \title{Index of observations}
-\format{An object of class \code{matrix} with 78 rows and 100 columns.}
+\format{
+An object of class \code{matrix} (inherits from \code{array}) with 78 rows and 100 columns.
+}
 \usage{
 data(Index.obs)
 }
 \description{
 The subset of observations, size: 78 * 100, is used for thresholding.
  For more details, see Bickel, P. J. and Levina, E. (2008).
- Covariance regularization by thresholding. The Annals of Statistics, 36(6):2577–2604.
+}
+\references{
+\insertRef{bickelCovarianceRegularizationThresholding2008}{llfdr}
 }
 \keyword{datasets}

@@ -4,7 +4,9 @@
 \name{hdcm2}
 \alias{hdcm2}
 \title{The bandwidth}
-\format{An object of class \code{list} of length 2.}
+\format{
+An object of class \code{list} of length 2.
+}
 \usage{
 data(hdcm2)
 }

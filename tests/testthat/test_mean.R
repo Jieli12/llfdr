@@ -5,5 +5,5 @@ test_that("Mean Function", {
     data(u)
     data(h1_lc)
     ylc <- YResidualH1LC(Y = Y, u = u, h = h1_lc$minimum)
-    expect_identical(class(ylc), "matrix")
+    expect_identical(class(ylc)[1], "matrix")
 })

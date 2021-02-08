@@ -35,7 +35,9 @@ CVLL <- function(Y, u, h, ktype = 'gaussian') {
     u_sort <- sort(u, index.return = TRUE)
     u <- u_sort$x
     Y <- Y[,u_sort$ix]
-
+    if (is.vector(Y)) {
+        Y <- matrix(Y, nrow = 1)
+    }
     # u_mat <- replicate(n, u)
     # u_diff <- t(u_mat) - u_mat
     # x <- u_diff / h
